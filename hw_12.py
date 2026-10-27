@@ -1,16 +1,22 @@
 import random
 
 def sort_list(nums):
+    nums = nums.copy()
     n = len(nums)
     cnt = 0
+
     for i in range(n - 1):
         min_index = i
         for j in range(i + 1, n):
             cnt += 1
             if nums[j] < nums[min_index]:
                 min_index = j
-        nums[i], nums[min_index] = nums[min_index], nums[i]
+
+        if min_index != i:
+            nums[i], nums[min_index] = nums[min_index], nums[i]
+
     return nums, cnt
+
 
 
 lst_1 = [3, 47, 24, 0, -7]
